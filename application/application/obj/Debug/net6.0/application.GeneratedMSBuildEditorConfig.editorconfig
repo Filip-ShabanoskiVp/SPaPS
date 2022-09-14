@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/User/Desktop/praksa filip/application/application/application/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/User/Desktop/praksa filip/application/application/application/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +45,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/LockedAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXExvY2tlZEFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXFJlc2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/_EmailLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXF9FbWFpbExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/User/Desktop/praksa filip/application/application/application/Views/Home/Index.cshtml]

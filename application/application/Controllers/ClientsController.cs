@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using application.Data;
 using application.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace application.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private readonly SPaPSContext _context;
@@ -19,6 +21,7 @@ namespace application.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Clients
         public async Task<IActionResult> Index()
         {

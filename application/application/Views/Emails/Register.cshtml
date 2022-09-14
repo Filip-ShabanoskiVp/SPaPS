@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_EmailLayout";
+    ViewBag.Title = "";
+}
+
+@section EmailHeader{
+Subject: Нов корисник
+}
+
+    <p>
+        Почитувани,
+    </p>
+    <p>
+        Креиран е нов корисник со,
+    </p>
+    <p>
+        Корисничко име: <b>@ViewBag.Username</b> <br />
+        Емаил: <b>@ViewBag.Email</b> <br />
+        Лозинка: <b>@ViewBag.Password</b>
+    </p>
+    <p>
+        За да ја завршите регистрациjaта и потврдите емаил адресата, кликнете на следниов <a href="@ViewBag.Callback">линк</a>.
+    </p>

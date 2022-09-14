@@ -1,6 +1,8 @@
 using application.Data;
+using DataAccess.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Postal.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<SPaPSContext>(options =>options.UseSqlServer(connectionString));
+
+/* Email service configuration */
+builder.Services.Configure<EmailSenderOptions>(builder.Configuration.GetSection("EmailConfiguration"));
+builder.Services.AddPostal();
+builder.Services.AddTransient<IEmailSenderEnhance, EmailSender>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

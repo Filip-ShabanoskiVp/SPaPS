@@ -1,32 +1,25 @@
-﻿@model application.Models.AccountModels.RegisterModel
+﻿@model application.Models.AccountModels.ChangeUserInfoModel
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "ChangeUserInfo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
-<form asp-action="Register" method="post">
+<form asp-action="ChangeUserInfo" method="post">
     <div class="card">
         <div class="card-header bg-primary">
-            <h2 class="text-white">Регистрација</h2>
+            <h2 class="text-white">Измени</h2>
         </div>
         <div class="card-body">
         <div class="col-md-3 col-6">
-            <div class="form-floating mb-3">
-                <input asp-for="Email" type="email" class="form-control" placeholder="name@example.com" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-                <label asp-for="Email"></label>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
+                <input type="hidden" asp-for="Email" />
             <div class="form-floating mb-3">
                 <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="PhoneNumbe" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 <label asp-for="PhoneNumber"></label>
             </div>
-            <br />
         </div>
         <div class="col-md-3 col-6">
             <div class="form-floating mb-3">
@@ -49,37 +42,35 @@
                 <label asp-for="IdNo"></label>
             </div>
         </div>
+        <br />
         <div class="col-md-3 col-6">
             <div class="form-floating mb-3">
-                <select asp-for="ClientTypeId" class="form-control" asp-items="ViewBag.types">
-                    <option  value="" selected></option>
+                <select asp-for="ClientTypeId" class="form-control" asp-items="ViewBag.Changertypes">
+                    <option value="" selected></option>
                 </select>
                 <span asp-validation-for="ClientTypeId" class="text-danger"></span>
-                <label asp-for="ClientTypeId" ></label>
+                <label asp-for="ClientTypeId"></label>
             </div>
         </div>
         <div class="col-md-3 col-6">
             <div class="form-floating mb-3">
-                <select asp-for="CityId" class="form-control" asp-items="ViewBag.cities">
+                <select asp-for="CityId" class="form-control" asp-items="ViewBag.changedcities">
                     <option value="" selected></option>
                 </select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
                 <label asp-for="CityId"></label>
             </div>
-            <br />
         </div>
         <div class="col-md-3 col-6">
             <div class="form-floating mb-3">
-                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.countries"></select>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Changedcountries"></select>
                 <span asp-validation-for="CountryId" class="text-danger"></span>
                 <label asp-for="CountryId"></label>
             </div>
-            <br />
         </div>
-
-
         <input type="submit" class="btn btn-primary" value="Submit" />
-        </div>
+            <a asp-action="UserInfos" asp-controller="Account">Back</a>
+    </div>
     </div>
 </form>
 <p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>

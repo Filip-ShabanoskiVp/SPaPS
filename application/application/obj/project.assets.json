@@ -2005,6 +2005,15 @@
           }
         }
       },
+      "PasswordGenerator/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PasswordGenerator.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PasswordGenerator.dll": {}
+        }
+      },
       "Postal.AspNetCore/2.6.0": {
         "type": "package",
         "compile": {
@@ -6372,6 +6381,18 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "PasswordGenerator/2.1.0": {
+      "sha512": "G70cCeAOYCk/uTuFw5PBGpYY9kmBZyzld7tphachvyU514PowMRDYyKwTefxIHNGWrhXY2d1DV5B1tDEnTtY3A==",
+      "type": "package",
+      "path": "passwordgenerator/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/PasswordGenerator.dll",
+        "passwordgenerator.2.1.0.nupkg.sha512",
+        "passwordgenerator.nuspec"
+      ]
+    },
     "Postal.AspNetCore/2.6.0": {
       "sha512": "KetShrARekN8pMBUfSe3relFGVf3E3/QGPcBdK6JhXLsCtRH19emxrIn5XArxeTekuQOkNjRFi9+M8adMz4ToQ==",
       "type": "package",
@@ -10351,6 +10372,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.8",
+      "PasswordGenerator >= 2.1.0",
       "Postal.AspNetCore >= 2.6.0"
     ]
   },
@@ -10416,6 +10438,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[6.0.8, )"
+          },
+          "PasswordGenerator": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           },
           "Postal.AspNetCore": {
             "target": "Package",

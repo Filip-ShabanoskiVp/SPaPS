@@ -2,24 +2,36 @@
 
 @{
     ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+
 
 <form asp-action="Login" method="post">
-    <div class="row">
-        <div class="col-md-3 col-6">
-            <div class="form-floating mb-3">
-                <input asp-for="email" type="email" class="form-control" placeholder="name@example.com" />
-                <label asp-for="email"></label>
-            </div>
+    <div class="card">
+        <div class="card-header bg-primary">
+            <h2 class="text-white">Најава</h2>
         </div>
-        <div class="col-md-3 col-6">
-            <div class="form-floating mb-3">
-                <input asp-for="password" type="password" class="form-control" placeholder="password" />
-                <label asp-for="password"></label>
+        <div class="card-body">
+            <div class="col-md-3 col-6">
+                <div class="form-floating mb-3 form-group">
+                    <input asp-for="email" type="email" class="form-control" placeholder="name@example.com" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                    <label asp-for="email"></label>
+                </div>
             </div>
+            <div class="col-md-3 col-6 form-group">
+                <div class="form-floating mb-3 form-group">
+                    <input asp-for="password" type="password" class="form-control" placeholder="password" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                    <label asp-for="password"></label>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Најави се" />
+            <br />
+            <a asp-action="ForgotPassword" asp-controller="Account">Заборавена лозинка ?</a>
         </div>
-        <input type="submit" class="btn btn-primary" value="Log in" />
     </div>
 </form>
+<p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
+<h4 class="col-12 text-center text-success">@Html.ValidationMessage("Success")</h4>

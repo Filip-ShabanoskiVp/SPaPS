@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using Postal;
@@ -140,7 +141,7 @@ namespace DataAccess.Services
             var client = new SmtpClient(_emailOptions.Host, _emailOptions.Port)
             {
                 EnableSsl = _emailOptions.EnableSSL,
-                UseDefaultCredentials = true,
+                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(_emailOptions.Username, _emailOptions.Password),
                 DeliveryMethod = SmtpDeliveryMethod.Network
             };
@@ -180,6 +181,7 @@ namespace DataAccess.Services
                 emailData.Attachments = model.Attachments;
 
             MailMessage message = await _emailService.CreateMailMessageAsync(emailData);
+            //message.IsBodyHtml = true;
             message.From = new MailAddress(_emailOptions.FromAddress);
             await SendEmailAsync(message);
         }

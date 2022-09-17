@@ -270,3 +270,4 @@ D:\User\Desktop\praksa filip\application\application\application\bin\Debug\net6.
 D:\User\Desktop\praksa filip\application\application\application\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\User\Desktop\praksa filip\application\application\application\bin\Debug\net6.0\libman.json
 D:\User\Desktop\praksa filip\application\application\application\bin\Debug\net6.0\Postal.AspNetCore.dll
+D:\User\Desktop\praksa filip\application\application\application\bin\Debug\net6.0\PasswordGenerator.dll

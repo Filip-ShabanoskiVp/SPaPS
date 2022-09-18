@@ -11,7 +11,7 @@ namespace application.Models.AccountModels
         public string NewPassword { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Потврдете ја лозинка")]
-        [Compare("NewPassword", ErrorMessage = "Пасвордите не се компатабилни")]
+        [Compare("NewPassword", ErrorMessage = "Пасвордите не се исти!")]
         public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

@@ -81,6 +81,15 @@ namespace application.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var types = _context.References.Where(x => x.ReferenceTypeId == 1);
+                var cities = _context.References.Where(x => x.ReferenceTypeId == 2);
+                var countries = _context.References.Where(x => x.ReferenceTypeId == 3);
+
+
+                ViewData["types"] = new SelectList(types.ToList(), "ReferenceId", "Description");
+                ViewData["cities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
+                ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
+
                 return View(model);
             }
                 var userExists = await userManager.FindByEmailAsync(model.Email);
@@ -115,8 +124,8 @@ namespace application.Controllers
                 Name = model.Name,
                 Address = model.Address,
                 IdNo = model.IdNo,
-                ClientTypeId = model.ClientTypeId,
-                CityId = model.CityId,
+                ClientTypeId = (int) model.ClientTypeId,
+                CityId = (int)model.CityId,
                 CountryId = model.CountryId
             };
 
@@ -262,7 +271,7 @@ namespace application.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult ChangeUserInfo()
+        public async Task<IActionResult> ChangeUserInfo()
         {
 
             var types = _context.References.Where(x => x.ReferenceTypeId == 1);
@@ -274,14 +283,49 @@ namespace application.Controllers
             ViewData["changedcities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
             ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
 
-            return View();
+   
+            var loggedInUserEmail = User.Identity.Name;
+
+            var user = await userManager.FindByEmailAsync(loggedInUserEmail);
+
+            Client client = _context.Clients.Where(x => x.UserId == user.Id).FirstOrDefault();
+
+
+            ChangeUserInfoModel infoModel = new ChangeUserInfoModel()
+            {
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Name = client.Name,
+                Address = client.Address,
+                IdNo = client.IdNo,
+                ClientTypeId = client.ClientTypeId,
+                CityId = client.CityId,
+                CountryId = client.CountryId
+            };
+
+
+            return View(infoModel);
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> ChangeUserInfo(RegisterModel model)
+        public async Task<IActionResult> ChangeUserInfo(ChangeUserInfoModel model)
         {
-          
+
+
+            if (!ModelState.IsValid)
+            {
+                var types = _context.References.Where(x => x.ReferenceTypeId == 1);
+                var cities = _context.References.Where(x => x.ReferenceTypeId == 2);
+                var countries = _context.References.Where(x => x.ReferenceTypeId == 3);
+
+
+                ViewData["Changertypes"] = new SelectList(types.ToList(), "ReferenceId", "Description");
+                ViewData["changedcities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
+                ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
+                return View(model);
+            }
+
             var loggedInUserEmail = User.Identity.Name;
 
             var user = await userManager.FindByEmailAsync(loggedInUserEmail);
@@ -294,8 +338,8 @@ namespace application.Controllers
             client.Name = model.Name;
             client.Address = model.Address;
             client.IdNo = model.IdNo;
-            client.ClientTypeId = model.ClientTypeId;
-            client.CityId = model.CityId;
+            client.ClientTypeId = (int)model.ClientTypeId;
+            client.CityId =(int) model.CityId;
             client.CountryId = model.CountryId;
             client.UpdatedOn = DateTime.Now;
 

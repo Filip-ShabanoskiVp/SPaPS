@@ -70,8 +70,11 @@
         </div>
         <div class="col-md-3 col-6">
             <div class="form-floating mb-3">
-                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.countries"></select>
-                <span asp-validation-for="CountryId" class="text-danger"></span>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.countries">
+                        <option value=""></option>
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger">
+                </span>
                 <label asp-for="CountryId"></label>
             </div>
             <br />

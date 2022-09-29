@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\User\\Desktop\\praksa filip\\application\\application\\application\\application.csproj": {}
+    "C:\\Users\\fshab\\Desktop\\SPaPS\\application\\application\\application.csproj": {}
   },
   "projects": {
-    "D:\\User\\Desktop\\praksa filip\\application\\application\\application\\application.csproj": {
+    "C:\\Users\\fshab\\Desktop\\SPaPS\\application\\application\\application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\User\\Desktop\\praksa filip\\application\\application\\application\\application.csproj",
+        "projectUniqueName": "C:\\Users\\fshab\\Desktop\\SPaPS\\application\\application\\application.csproj",
         "projectName": "application",
-        "projectPath": "D:\\User\\Desktop\\praksa filip\\application\\application\\application\\application.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\User\\Desktop\\praksa filip\\application\\application\\application\\obj\\",
+        "projectPath": "C:\\Users\\fshab\\Desktop\\SPaPS\\application\\application\\application.csproj",
+        "packagesPath": "C:\\Users\\fshab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fshab\\Desktop\\SPaPS\\application\\application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fshab\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,15 +54,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.9, )"
             },
             "PasswordGenerator": {
               "target": "Package",
@@ -92,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

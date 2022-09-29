@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using application.Data;
 using application.Models;
 using Microsoft.AspNetCore.Authorization;
+using SPaPSContext = application.Data.SPaPSContext;
 
 namespace application.Controllers
 {
@@ -58,7 +59,7 @@ namespace application.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClientId,UserId,ClientTypeId,Name,Address,IdNo,ClientCategoryId,CityId,CountryId,CreatedOn,UpdatedOn")] Client client)
+        public async Task<IActionResult> Create([Bind("ClientId,UserId,ClientTypeId,Name,Address,IdNo,CityId,CountryId,CreatedOn,UpdatedOn")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace application.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ClientId,UserId,ClientTypeId,Name,Address,IdNo,ClientCategoryId,CityId,CountryId,CreatedOn,UpdatedOn")] Client client)
+        public async Task<IActionResult> Edit(long id, [Bind("ClientId,UserId,ClientTypeId,Name,Address,IdNo,CityId,CountryId,CreatedOn,UpdatedOn")] Client client)
         {
             if (id != client.ClientId)
             {

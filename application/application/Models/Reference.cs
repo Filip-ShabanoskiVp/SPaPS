@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace application.Models
 {
@@ -9,7 +7,6 @@ namespace application.Models
     {
         public long ReferenceId { get; set; }
         public long ReferenceTypeId { get; set; }
-        [DisplayName("Opis na referenca")]
         public string Description { get; set; } = null!;
         public string Code { get; set; } = null!;
         public DateTime CreatedOn { get; set; }

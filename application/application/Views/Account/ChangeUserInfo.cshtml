@@ -70,6 +70,36 @@
                 <label asp-for="CountryId"></label>
             </div>
         </div>
+            @if (User.IsInRole("Изведувач"))
+            {
+            <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                 <input asp-for="NoOfEmployees" type="number" class="form-control" placeholder="idno" />
+                 <span asp-validation-for="NoOfEmployees" class="text-danger"></span>
+                 <label asp-for="NoOfEmployees"></label>
+                 <p class="col-12 text-center text-danger">@Html.ValidationMessage("ErrorNoOfEmployees")</p>
+            </div>
+         </div>
+            <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                 <input asp-for="DateEstablished" type="date" class="form-control" placeholder="idno" />
+                 <span asp-validation-for="DateEstablished" class="text-danger"></span>
+                 <label asp-for="DateEstablished"></label>
+                        <p class="col-12 text-center text-danger">@Html.ValidationMessage("ErrorDateEstablished")</p>
+             </div>
+         </div>
+         <div class="col-md-3 col-6">
+               <div class="form-group">
+                        <label asp-for="ActivityIds" class="control-label"></label>
+                        <select asp-for="ActivityIds" asp-items="@ViewBag.activities" class="form-select dropdown-select" multiple>
+                            <option value="">-- Избери --</option>
+                        </select>
+                        <span asp-validation-for="ActivityIds" class="text-danger"></span>
+                        <p class="col-12 text-center text-danger">@Html.ValidationMessage("ErrorActivity")</p>
+                </div>
+          </div>
+
+            }
         <input type="submit" class="btn btn-primary" value="Submit" />
             <a asp-action="UserInfos" asp-controller="Account">Back</a>
     </div>

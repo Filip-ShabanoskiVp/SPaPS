@@ -7,9 +7,16 @@
       "destination": "wwwroot/lib/bootstrap/"
     },
     {
-      "provider": "cdnjs",
       "library": "jquery@3.6.1",
       "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
+    },
+    {
+      "library": "select2-bootstrap-5-theme@1.3.0",
+      "destination": "wwwroot/lib/select2-bootstrap-5-theme/"
     }
   ]
 }

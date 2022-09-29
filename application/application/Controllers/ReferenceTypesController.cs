@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using application.Data;
 using application.Models;
+using SPaPSContext = application.Data.SPaPSContext;
 
 namespace application.Controllers
 {

@@ -1,7 +1,8 @@
-﻿    using application.Data;
+﻿using application.Data;
 using application.Helpers;
 using application.Models;
 using application.Models.AccountModels;
+using application.Models.CustomModels;
 using DataAccess.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Html;
@@ -10,7 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Linq;
+using SPaPSContext =application.Data.SPaPSContext;
 
 namespace application.Controllers
 {
@@ -20,16 +23,18 @@ namespace application.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly SPaPSContext _context;
         private readonly IEmailSenderEnhance emailService;
 
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, 
-            SPaPSContext _context, IEmailSenderEnhance emailService)
+            SPaPSContext _context, IEmailSenderEnhance emailService, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this._context = _context;
             this.emailService = emailService;
+            this.roleManager = roleManager;
         }
 
         [HttpGet]
@@ -66,11 +71,14 @@ namespace application.Controllers
             var types = _context.References.Where(x => x.ReferenceTypeId == 1);
             var cities = _context.References.Where(x => x.ReferenceTypeId == 2);
             var countries = _context.References.Where(x => x.ReferenceTypeId == 3);
+            var roles = roleManager.Roles.ToList();
 
 
             ViewData["types"] = new SelectList(types.ToList(), "ReferenceId", "Description");
             ViewData["cities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-            ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description",7);
+            ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description",8);
+            ViewData["Roles"] = new SelectList(roles,"Name", "Name");
+            ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
             return View();
         }
@@ -79,6 +87,37 @@ namespace application.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
         {
+
+            if (model.Role == "Изведувач" && (model.DateEstablished==null || model.NoOfEmployees == null
+                || model.ActivityIds.Count==0 || (model.ActivityIds.Count>0 && model.ActivityIds.Contains(null))))
+            {
+
+
+                ViewData["types"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 1).ToList(), "ReferenceId", "Description");
+                ViewData["cities"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 2).ToList(), "ReferenceId", "Description");
+                ViewData["countries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 8);
+                ViewData["Roles"] = new SelectList(roleManager.Roles.ToList(), "Name", "Name");
+                ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
+                
+                if(model.DateEstablished == null)
+                {
+                    ModelState.AddModelError("ErrorDateEstablished", "Внеси датум на основање!");
+                }
+                if (model.NoOfEmployees == null)
+                {
+                    ModelState.AddModelError("ErrorNoOfEmployees", "Внеси Број на вработени!");
+                }
+                if (model.ActivityIds.Count == 0)
+                {
+                    ModelState.AddModelError("ErrorActivity", "Внеси Активности!");
+                }
+
+                if (model.ActivityIds.Count > 0 && model.ActivityIds.Contains(null))
+                {
+                    ModelState.AddModelError("ErrorActivity", "Внесовте невалидна вредност за активност!");
+                }
+                return View(model);
+            }
             if (!ModelState.IsValid)
             {
                 var types = _context.References.Where(x => x.ReferenceTypeId == 1);
@@ -88,8 +127,11 @@ namespace application.Controllers
 
                 ViewData["types"] = new SelectList(types.ToList(), "ReferenceId", "Description");
                 ViewData["cities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-                ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
+                ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 8);
+                ViewData["Roles"] = new SelectList(roleManager.Roles.ToList(), "Name", "Name");
+                ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
+                ModelState.AddModelError("Error", "Се случи грешка. Обидете се повторно!");
                 return View(model);
             }
                 var userExists = await userManager.FindByEmailAsync(model.Email);
@@ -99,6 +141,7 @@ namespace application.Controllers
                 ModelState.AddModelError("Error", "Корисникот веќе постои!");
                 return View(model);
             }
+
 
             IdentityUser user = new IdentityUser()
             {
@@ -118,6 +161,8 @@ namespace application.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            await userManager.AddToRoleAsync(user, model.Role);
+
             Client client = new Client()
             {
                 UserId = user.Id,
@@ -126,11 +171,30 @@ namespace application.Controllers
                 IdNo = model.IdNo,
                 ClientTypeId = (int) model.ClientTypeId,
                 CityId = (int)model.CityId,
-                CountryId = model.CountryId
+                CountryId = model.CountryId,
+                DateEstablished = model.DateEstablished,
+                NoOfEmployees = model.NoOfEmployees
             };
 
             await _context.Clients.AddAsync(client);
             await _context.SaveChangesAsync();
+
+            if (await userManager.IsInRoleAsync(user, "Изведувач"))
+            {
+                List<ClientActivity> clientActivities = model.ActivityIds.Select(x => new ClientActivity()
+                {
+                    ClientId = client.ClientId,
+                    ActivityId = (int)x
+                }).ToList();
+
+
+                await _context.ClientActivities.AddRangeAsync(clientActivities);
+                await _context.SaveChangesAsync();
+             
+            }
+      
+
+
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
@@ -281,15 +345,24 @@ namespace application.Controllers
 
             ViewData["Changertypes"] = new SelectList(types.ToList(), "ReferenceId", "Description");
             ViewData["changedcities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-            ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
+            ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 8);
+            ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
-   
+
             var loggedInUserEmail = User.Identity.Name;
 
             var user = await userManager.FindByEmailAsync(loggedInUserEmail);
 
             Client client = _context.Clients.Where(x => x.UserId == user.Id).FirstOrDefault();
 
+            List<int?> ids = new List<int?>();
+            foreach (var item in _context.ClientActivities)
+            {
+                if (item.ClientId.Equals(client.ClientId))
+                {
+                    ids.Add(Convert.ToInt32(item.ActivityId));
+                }
+            }
 
             ChangeUserInfoModel infoModel = new ChangeUserInfoModel()
             {
@@ -300,7 +373,10 @@ namespace application.Controllers
                 IdNo = client.IdNo,
                 ClientTypeId = client.ClientTypeId,
                 CityId = client.CityId,
-                CountryId = client.CountryId
+                CountryId = client.CountryId,
+                NoOfEmployees = client.NoOfEmployees,
+                DateEstablished = client.DateEstablished,
+                ActivityIds = ids
             };
 
 
@@ -312,7 +388,6 @@ namespace application.Controllers
         public async Task<IActionResult> ChangeUserInfo(ChangeUserInfoModel model)
         {
 
-
             if (!ModelState.IsValid)
             {
                 var types = _context.References.Where(x => x.ReferenceTypeId == 1);
@@ -323,34 +398,101 @@ namespace application.Controllers
                 ViewData["Changertypes"] = new SelectList(types.ToList(), "ReferenceId", "Description");
                 ViewData["changedcities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
                 ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
+                ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
                 return View(model);
             }
-
             var loggedInUserEmail = User.Identity.Name;
 
             var user = await userManager.FindByEmailAsync(loggedInUserEmail);
 
+            if (await userManager.IsInRoleAsync(user, "Изведувач") && (model.DateEstablished == null || model.NoOfEmployees == null
+              || model.ActivityIds.Count == 0 || (model.ActivityIds.Count > 0 && model.ActivityIds.Contains(null))))
+            {
+
+
+                ViewData["Changertypes"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 1).ToList(), "ReferenceId", "Description");
+                ViewData["changedcities"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 2).ToList(), "ReferenceId", "Description");
+                ViewData["Changedcountries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 8);
+                ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
+
+                if (model.DateEstablished == null)
+                {
+                    ModelState.AddModelError("ErrorDateEstablished", "Внеси датум на основање!");
+                }
+                if (model.NoOfEmployees == null)
+                {
+                    ModelState.AddModelError("ErrorNoOfEmployees", "Внеси Број на вработени!");
+                }
+                if (model.ActivityIds.Count == 0)
+                {
+                    ModelState.AddModelError("ErrorActivity", "Внеси Активности!");
+                }
+
+                if (model.ActivityIds.Count > 0 && model.ActivityIds.Contains(null))
+                {
+                    ModelState.AddModelError("ErrorActivity", "Внесовте невалидна вредност за активност!");
+                }
+                return View(model);
+            }
+
+
+
+
             user.PhoneNumber = model.PhoneNumber;
             await userManager.UpdateAsync(user);
 
-            Client client =  _context.Clients.Where(x=>x.UserId == user.Id).FirstOrDefault();
+            Client client = _context.Clients.Where(x => x.UserId == user.Id).FirstOrDefault();
 
             client.Name = model.Name;
             client.Address = model.Address;
             client.IdNo = model.IdNo;
             client.ClientTypeId = (int)model.ClientTypeId;
-            client.CityId =(int) model.CityId;
+            client.CityId = (int)model.CityId;
             client.CountryId = model.CountryId;
             client.UpdatedOn = DateTime.Now;
+            client.NoOfEmployees = model.NoOfEmployees;
+            client.DateEstablished = model.DateEstablished;
 
-            _context.Update(client);
 
-            await _context.SaveChangesAsync();
 
+            try
+            {
+                _context.Update(client);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Error", "Се случи грешка. Обидете се повторно!");
+            }
+
+            if (await userManager.IsInRoleAsync(user, "Изведувач"))
+            {
+                var cl = _context.ClientActivities.Where(x => x.ClientId.Equals(client.ClientId));
+
+                _context.ClientActivities.RemoveRange(cl);
+                await _context.SaveChangesAsync();
+
+                List<ClientActivity> clientActivities = new List<ClientActivity>();
+                foreach (var item in model.ActivityIds)
+                {
+                    ClientActivity ca = new ClientActivity()
+                    {
+                        ClientId = client.ClientId,
+                        ActivityId = (long)item
+                    };
+
+                    clientActivities.Add(ca);
+                }
+
+                _context.ClientActivities.AddRange(clientActivities);
+                await _context.SaveChangesAsync();
+            }
             ModelState.AddModelError("Success", "Успешнa измена!");
 
             return RedirectToAction(nameof(UserInfos));
         }
+           
+        
 
 
         [HttpGet]
@@ -369,27 +511,27 @@ namespace application.Controllers
             var city = _context.References.Where(x => x.ReferenceId == client.CityId).FirstOrDefault();
             var countrie = _context.References.Where(x => x.ReferenceId == client.CountryId).FirstOrDefault();
 
-
-
-
-
-            ChangeUserInfoModel infoModel = new ChangeUserInfoModel()
-            {
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                Name = client.Name,
-                Address = client.Address,
-                IdNo = client.IdNo,
-                ClientTypeId = client.ClientTypeId,
-                CityId = client.CityId,
-                CountryId = client.CountryId
-            };
-
+            List<ChangeUserInfoModel> changeUsers = await _context.Clients
+                                       .Include(x => x.ClientActivities)
+                                       .Select(x => new ChangeUserInfoModel()
+                                       {
+                                           Email = user.Email,
+                                           PhoneNumber = user.PhoneNumber,
+                                           Name = x.Name,
+                                           Address = x.Address,
+                                           IdNo = x.IdNo,
+                                           ClientTypeId = x.ClientTypeId,
+                                           CityId = x.CityId,
+                                           CountryId = x.CountryId,
+                                           NoOfEmployees = x.NoOfEmployees,
+                                           DateEstablished = x.DateEstablished,
+                                           Activities = String.Join("; ", x.ClientActivities.Select(a => a.Activity.Name))
+                                       }).ToListAsync();
+          
             ViewData["descType"] = type.Description;
             ViewData["descCity"] = city.Description;
             ViewData["descCountry"] = countrie.Description;
-            ViewData["infos"] = infoModel;
-            return View();
+            return View(changeUsers);
         }
 
         [HttpPost]

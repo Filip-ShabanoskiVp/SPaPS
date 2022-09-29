@@ -8,149 +8,189 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = application
 build_property.RootNamespace = application
-build_property.ProjectDir = D:\User\Desktop\praksa filip\application\application\application\
+build_property.ProjectDir = C:\Users\fshab\Desktop\SPaPS\application\application\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\User\Desktop\praksa filip\application\application\application
+build_property.MSBuildProjectDirectory = C:\Users\fshab\Desktop\SPaPS\application\application
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/ChangePassword.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/ChangeUserInfo.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/ChangeUserInfo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VVc2VySW5mby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/ForgotPassword.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/Login.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/Register.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/ResetPassword.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Account/UserInfos.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Account/UserInfos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VySW5mb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Create.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Activities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Activities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Activities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Activities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Activities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Clients/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Delete.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Clients/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Details.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Clients/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Edit.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Clients/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Clients/Index.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Clients/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/LockedAccount.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/LockedAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXExvY2tlZEFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/Register.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/ResetPassword.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXFJlc2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Emails/_EmailLayout.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/_EmailLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXF9FbWFpbExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Home/Index.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Home/Privacy.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/References/Create.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/References/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/References/Delete.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/References/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/References/Details.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/References/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/References/Edit.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/References/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/References/Index.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/References/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/ReferenceTypes/Create.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/ReferenceTypes/Delete.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/ReferenceTypes/Details.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/ReferenceTypes/Edit.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/ReferenceTypes/Index.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Shared/Error.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/_ViewImports.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/_ViewStart.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/User/Desktop/praksa filip/application/application/application/Views/Shared/_Layout.cshtml]
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-onxy8291ps

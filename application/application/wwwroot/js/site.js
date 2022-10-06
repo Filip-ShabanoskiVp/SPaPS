@@ -26,5 +26,49 @@
             document.querySelector("#ActivityIds").value = null;
         }
     })
-   
+
+    let serviceInput = document.querySelector("#ServiceId");
+
+    if (serviceInput) {
+
+        let BuildingType = document.querySelector(".BuildingTypeId");
+        let BuildingSize = document.querySelector(".BuildingSize");
+        let Color = document.querySelector(".Color");
+        let NoOfWindows = document.querySelector(".NoOfWindows");
+        let NoOfDoors = document.querySelector(".NoOfDoors");
+
+        serviceInput.addEventListener("change", () => {
+
+            BuildingType.classList.add("d-none");
+            BuildingSize.classList.add("d-none");
+            Color.classList.add("d-none");
+            NoOfWindows.classList.add("d-none");
+            NoOfDoors.classList.add("d-none");
+            Color.classList.add("d-none");
+
+            let serviceId = serviceInput.value;
+
+            if (serviceId == null) {
+                return;
+            }
+
+            if (serviceId == 1) {
+                BuildingType.classList.remove("d-none");
+                NoOfWindows.classList.remove("d-none");
+                NoOfDoors.classList.remove("d-none");
+            }
+
+            else if (serviceId == 2) {
+                BuildingType.classList.remove("d-none");
+                BuildingSize.classList.remove("d-none");
+                Color.classList.remove("d-none");
+            }
+
+            else if (serviceId == 3) {
+                BuildingType.classList.remove("d-none");
+                BuildingSize.classList.remove("d-none");
+            }
+
+        });
+    }
 });

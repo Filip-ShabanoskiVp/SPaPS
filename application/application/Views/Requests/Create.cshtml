@@ -1,0 +1,87 @@
+﻿@model application.Models.Request
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="card">
+    <div class="card-header bg-primary">
+        <h1 class="text-white">Create</h1>
+    </div>
+    <div class="card-body">
+        <h4>Request</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="RequestDate" class="control-label"></label>
+                        <input asp-for="RequestDate" type="date" class="form-control" disabled />
+                        <span asp-validation-for="RequestDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ServiceId" class="control-label"></label>
+                        <select asp-for="ServiceId" class="form-select" asp-items="ViewBag.Services">
+                            <option value="">-- Избери --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FromDate" class="control-label"></label>
+                        <input asp-for="FromDate" type="date" class="form-control" />
+                        <span asp-validation-for="FromDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ToDate" class="control-label"></label>
+                        <input asp-for="ToDate" type="date" class="form-control" />
+                        <span asp-validation-for="ToDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-none BuildingTypeId">
+                        <label asp-for="BuildingTypeId" class="control-label"></label>
+                        <select asp-for="BuildingTypeId" class="form-select" asp-items="ViewBag.BuildingTypes">
+                            <option value="">-- Избери --</option>
+                        </select>
+                        <span asp-validation-for="BuildingTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-none BuildingSize">
+                        <label asp-for="BuildingSize" class="control-label"></label>
+                        <input asp-for="BuildingSize" min="0" class="form-control" />
+                        <span asp-validation-for="BuildingSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-none Color">
+                        <label asp-for="Color" class="control-label"></label>
+                        <input asp-for="Color" type="color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-none NoOfWindows">
+                        <label asp-for="NoOfWindows" class="control-label"></label>
+                        <input asp-for="NoOfWindows" min="1" class="form-control" />
+                        <span asp-validation-for="NoOfWindows" class="text-danger"></span>
+                    </div>
+                    <div class="form-group d-none NoOfDoors">
+                        <label asp-for="NoOfDoors" class="control-label"></label>
+                        <input asp-for="NoOfDoors" min="1" class="form-control" />
+                        <span asp-validation-for="NoOfDoors" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Note" class="control-label"></label>
+                        <textarea asp-for="Note" class="form-control"></textarea>
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

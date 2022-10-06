@@ -91,6 +91,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXExvY2tlZEFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/NewRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXE5ld1JlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fshab/Desktop/SPaPS/application/application/Views/Emails/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -149,6 +153,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/fshab/Desktop/SPaPS/application/application/Views/ReferenceTypes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVmZXJlbmNlVHlwZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Requests/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Requests/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Requests/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Requests/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fshab/Desktop/SPaPS/application/application/Views/Requests/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fshab/Desktop/SPaPS/application/application/Views/Services/Create.cshtml]

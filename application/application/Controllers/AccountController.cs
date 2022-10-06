@@ -11,8 +11,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
+using Postal;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Xml.Linq;
 using SPaPSContext =application.Data.SPaPSContext;
 
 namespace application.Controllers
@@ -76,7 +79,7 @@ namespace application.Controllers
 
             ViewData["types"] = new SelectList(types.ToList(), "ReferenceId", "Description");
             ViewData["cities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-            ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description",8);
+            ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description",7);
             ViewData["Roles"] = new SelectList(roles,"Name", "Name");
             ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
@@ -95,7 +98,7 @@ namespace application.Controllers
 
                 ViewData["types"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 1).ToList(), "ReferenceId", "Description");
                 ViewData["cities"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 2).ToList(), "ReferenceId", "Description");
-                ViewData["countries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 8);
+                ViewData["countries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 7);
                 ViewData["Roles"] = new SelectList(roleManager.Roles.ToList(), "Name", "Name");
                 ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
                 
@@ -127,7 +130,7 @@ namespace application.Controllers
 
                 ViewData["types"] = new SelectList(types.ToList(), "ReferenceId", "Description");
                 ViewData["cities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-                ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 8);
+                ViewData["countries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
                 ViewData["Roles"] = new SelectList(roleManager.Roles.ToList(), "Name", "Name");
                 ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
@@ -243,7 +246,7 @@ namespace application.Controllers
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
-            var callback = Url.Action(action: "ResetPassword", controller: "Account", values: new { token, email = user.Email }, HttpContext.Request.Scheme);
+            var callback = Url.Action(action: "ResetPassword", controller: "Account", values: new { token,  email = user.Email }, HttpContext.Request.Scheme);
 
             EmailSetUp emailSetUp = new EmailSetUp()
             {
@@ -345,7 +348,7 @@ namespace application.Controllers
 
             ViewData["Changertypes"] = new SelectList(types.ToList(), "ReferenceId", "Description");
             ViewData["changedcities"] = new SelectList(cities.ToList(), "ReferenceId", "Description");
-            ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 8);
+            ViewData["Changedcountries"] = new SelectList(countries.ToList(), "ReferenceId", "Description", 7);
             ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
 
@@ -412,7 +415,7 @@ namespace application.Controllers
 
                 ViewData["Changertypes"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 1).ToList(), "ReferenceId", "Description");
                 ViewData["changedcities"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 2).ToList(), "ReferenceId", "Description");
-                ViewData["Changedcountries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 8);
+                ViewData["Changedcountries"] = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description", 7);
                 ViewBag.activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
 
                 if (model.DateEstablished == null)
@@ -511,8 +514,11 @@ namespace application.Controllers
             var city = _context.References.Where(x => x.ReferenceId == client.CityId).FirstOrDefault();
             var countrie = _context.References.Where(x => x.ReferenceId == client.CountryId).FirstOrDefault();
 
+
+
             List<ChangeUserInfoModel> changeUsers = await _context.Clients
                                        .Include(x => x.ClientActivities)
+                                       .Where(x=>x.UserId==user.Id)
                                        .Select(x => new ChangeUserInfoModel()
                                        {
                                            Email = user.Email,
@@ -527,7 +533,7 @@ namespace application.Controllers
                                            DateEstablished = x.DateEstablished,
                                            Activities = String.Join("; ", x.ClientActivities.Select(a => a.Activity.Name))
                                        }).ToListAsync();
-          
+
             ViewData["descType"] = type.Description;
             ViewData["descCity"] = city.Description;
             ViewData["descCountry"] = countrie.Description;
